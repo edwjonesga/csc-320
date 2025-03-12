@@ -10,6 +10,7 @@ public class HikingPacking {
      */
 
     // Inner class representing a backpack
+        // Inner class representing a backpack
     public static class Backpack {
         private int capacity;
         private List<Item> packedItems;
@@ -23,15 +24,34 @@ public class HikingPacking {
             return capacity;
         }
 
-        public List<Item> getPackedItems() {
-            return packedItems;
-        }
-
         public void addItem(Item item) {
             packedItems.add(item);
         }
-    }
 
+        public int getTotalWeight() {
+            int totalWeight = 0;
+            for (Item item : packedItems) {
+                totalWeight += item.getWeight();
+            }
+            return totalWeight;
+        }
+
+        public int getTotalValue() {
+            int totalValue = 0;
+            for (Item item : packedItems) {
+                totalValue += item.getValue();
+            }
+            return totalValue;
+        }
+
+        public Backpack copy() {
+            Backpack newBackpack = new Backpack(this.capacity);
+            for (Item item : this.packedItems) {
+                newBackpack.addItem(item);
+            }
+            return newBackpack;
+        }
+    }
     // Inner class representing an item
     public static class Item {
         private int weight;
