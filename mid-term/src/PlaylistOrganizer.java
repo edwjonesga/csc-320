@@ -1,3 +1,5 @@
+
+import java.util.List;
 public class PlaylistOrganizer {
     /*
      * You are working on an **automated playlist manager** that organizes songs

@@ -12,7 +12,7 @@ public class Main {
         UnaryAdder adder = new UnaryAdder("111+11");
         System.out.println("Unary Addition Output: " + adder.compute());
 
-        BinaryIncrementer incrementer = new BinaryIncrementer("10110");
+        BinaryIncrementer incrementer = new BinaryIncrementer("111");
         System.out.println("Binary Increment Output: " + incrementer.compute());
 
         BinaryDecrementer decrementer = new BinaryDecrementer("1011");
@@ -21,7 +21,7 @@ public class Main {
         PalindromeChecker checker = new PalindromeChecker("11011");
         System.out.println("Palindrome Check Output: " + checker.check());
 
-        BinaryAdder binaryAdder = new BinaryAdder("1010+101");
+        BinaryAdder binaryAdder = new BinaryAdder("_1010+1011");
         System.out.println("Binary Addition Output: " + binaryAdder.compute());
     }
 }
