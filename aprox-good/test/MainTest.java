@@ -48,8 +48,8 @@ public class MainTest {
         List<Integer> nums = Arrays.asList(3, 1, 4, 2, 2);
         PartitionBruteForce.Result result = p.bruteForcePartition(nums);
 
-        int sum1 = result.set1.stream().mapToInt(i -> i).sum();
-        int sum2 = result.set2.stream().mapToInt(i -> i).sum();
+        int sum1 = result.subsetA.stream().mapToInt(i -> i).sum();
+        int sum2 = result.subsetA.stream().mapToInt(i -> i).sum();
 
         assertEquals(sum1, sum2, 1, "Brute-force partition is not approximately balanced");
     }
