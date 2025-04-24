@@ -3,6 +3,8 @@ import java.util.concurrent.ForkJoinPool;
 
 public class Main {
     public static void main(String[] args) {
+        int size = 1_000_000;
+        System.out.println(size);
         runSimpleForkJoin();
         runParallelMergeSort();
         runParallelMatrixMultiply();
@@ -13,6 +15,7 @@ public class Main {
         System.out.println("== SimpleForkJoinTask ==");
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
         SimpleForkJoinTask task = new SimpleForkJoinTask(arr, 0, arr.length);
+        
         int result = ForkJoinPool.commonPool().invoke(task);
         System.out.println("Sum: " + result);
     }
@@ -54,12 +57,3 @@ public class Main {
         }
     }
 }
-import java.util.concurrent.RecursiveTask;
-
-
-import java.util.concurrent.RecursiveAction;
-
-import java.util.Arrays;
-import java.util.concurrent.RecursiveTask;
-
-
