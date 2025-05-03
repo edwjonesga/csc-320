@@ -54,21 +54,35 @@ public class MainTest {
         assertEquals(sum1, sum2, 1, "Brute-force partition is not approximately balanced");
     }
 
+   
     @Test
-    public void testGreedyPartitionStub() {
+    public void testGreedyPartition() {
         Partition p = new Partition();
-        List<Integer> nums = Arrays.asList(5, 8, 6, 4);
+        List<Integer> nums = Arrays.asList(10, 7, 6, 2, 1);
         PartitionBruteForce.Result result = p.greedyPartition(nums);
 
-        assertNull(result, "Expected null until student implements greedyPartition");
+        assertNotNull(result);
+        int sum1 = result.subsetA.stream().mapToInt(i -> i).sum();
+        int sum2 = result.subsetB.stream().mapToInt(i -> i).sum();
+
+        assertTrue(Math.abs(sum1 - sum2) <= Collections.max(nums),
+            "Greedy partition should be reasonably balanced");
     }
 
     @Test
-    public void testPTASPartitionStub() {
+    public void testPTASPartition() {
         Partition p = new Partition();
-        List<Integer> nums = Arrays.asList(5, 8, 6, 4);
+        List<Integer> nums = Arrays.asList(10, 7, 6, 2, 1);
         PartitionBruteForce.Result result = p.ptasPartition(nums, 0.2);
 
-        assertNull(result, "Expected null until student implements ptasPartition");
+        assertNotNull(result);
+        int sum1 = result.subsetA.stream().mapToInt(i -> i).sum();
+        int sum2 = result.subsetB.stream().mapToInt(i -> i).sum();
+
+        double total = sum1 + sum2;
+        double ratio = Math.max(sum1, sum2) / (total / 2);
+
+        assertTrue(ratio <= 1.2,
+            "PTAS partition should be within (1+ε) = 1.2 of optimal: got ratio = " + ratio);
     }
 }
